@@ -15,17 +15,16 @@ const ListDetailComponent = () => {
     );
   }
 
-
   return (
-    <div className="w-1/2 p-8">
-      <h1 className="text-4xl font-bold leading-tight">{data.title}</h1>
-      <p className="font-bold mt-4 mb-6">{data.subTitle}</p>
+    <div className="w-full md:w-1/2 p-4 md:p-8">
+      <h1 className="text-2xl md:text-4xl font-bold leading-tight">{data.title}</h1>
+      <p className="font-bold mt-2 md:mt-4 mb-4 md:mb-6">{data.subTitle}</p>
 
       <div className="relative">
         {data.items.map((item, index) => (
           <div
             key={item.name}
-            className="relative flex items-start gap-4 pb-8 cursor-pointer transition-all"
+            className="relative flex items-start gap-4 pb-4 md:pb-8 cursor-pointer transition-all"
             onClick={() => dispatch(setSelectedItem(item))}
           >
             {index !== data.items.length - 1 && (
@@ -33,17 +32,18 @@ const ListDetailComponent = () => {
             )}
 
             <div
-              className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full 
-                ${selectedItem?.name === item.name ? "bg-[#E8EDFB]" : "bg-white border-2 border-gray-400"}`}
+              className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full ${
+                selectedItem?.name === item.name ? "bg-[#E8EDFB]" : "bg-white border-2 border-gray-400"
+              }`}
             >
-           <span className={`text-xs ${selectedItem?.name === item.name ? "text-blue-500" : "text-red-500"}`}>
-  {selectedItem?.name === item.name ? <AiOutlineCheck /> : <AiOutlineClose className="text-gray-500"/>}
-</span>
+              <span className={`text-xs ${selectedItem?.name === item.name ? "text-blue-500" : "text-red-500"}`}>
+                {selectedItem?.name === item.name ? <AiOutlineCheck /> : <AiOutlineClose className="text-gray-500" />}
+              </span>
             </div>
 
             <div className="flex-1">
-              <h3 className="text-lg font-semibold">{item.name}</h3>
-              <p className="text-sm text-gray-500 mr-[20px]">{item.desc}</p>
+              <h3 className="text-sm md:text-lg font-semibold">{item.name}</h3>
+              <p className="text-xs md:text-sm text-gray-500 mr-[20px]">{item.desc}</p>
             </div>
           </div>
         ))}

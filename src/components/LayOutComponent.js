@@ -19,7 +19,7 @@ const LayOutComponent = () => {
   if (!data) return null;
 
   return (
-    <div className="flex max-w-6xl mx-auto bg-white shadow-lg rounded-lg mt-8">
+    <div className="flex flex-col md:flex-row max-w-6xl mx-auto bg-white shadow-lg rounded-lg mt-8">
       <ListDetailComponent items={data.items} />
       <ImageDisplay selectedItem={selectedItem} items={data.items} />
     </div>
